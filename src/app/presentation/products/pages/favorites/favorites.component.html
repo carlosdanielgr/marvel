@@ -1,1 +1,9 @@
-<p>favorites works!</p>
+@if(productsService.favorites.length && !productsService.loading) {
+<div class="product-list">
+  @for (item of productsService.favorites; track $index) {
+  <app-product-card [product]="item" />
+  }
+</div>
+}@else {
+<app-loading />
+}

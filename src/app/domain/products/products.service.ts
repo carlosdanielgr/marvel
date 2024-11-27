@@ -11,7 +11,7 @@ import { forkJoin } from 'rxjs';
 export class ProductsService {
   products: Product[] = [];
 
-  favorites: Favorite[] = [];
+  favorites: Product[] = [];
 
   loading = false;
 
@@ -44,11 +44,10 @@ export class ProductsService {
     this.loading = true;
     forkJoin([this.getFavorites(), this.getComics()]).subscribe({
       next: (response: any) => {
-        this.favorites = response[0];
-        this.productFavoritesIds = this.favorites.map(
-          (data: any) => data.productId
-        );
+        const favorite = response[0] as Favorite[];
+        this.productFavoritesIds = favorite.map((data: any) => data.productId);
         this.setCommics(response[1].data.results);
+        this.setFavorites();
         this.loading = false;
       },
     });
@@ -72,5 +71,9 @@ export class ProductsService {
         product.productId = favorite?.id || '';
       }
     });
+  }
+
+  setFavorites(): void {
+    this.favorites = this.products.filter((product) => product.isFavorite);
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProductsService } from 'src/app/domain/products/products.service';
 import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
-import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 @Component({
   selector: 'app-products-list',

@@ -27,8 +27,12 @@ export class ProductCardComponent {
     this.productService
       .deleteFavorite(this.product.productId as string)
       .subscribe({
+        next: () => {
+          this.productService.setFavorites();
+        },
         error: () => {
           this.product.isFavorite = true;
+          this.productService.setFavorites();
           Swal.fire(errorFn('Error al quitar de favoritos'));
         },
       });
@@ -39,6 +43,7 @@ export class ProductCardComponent {
     this.productService.postFavorite(this.product.id as string).subscribe({
       next: (res) => {
         this.product.productId = res.id;
+        this.productService.setFavorites();
       },
       error: () => {
         this.product.isFavorite = false;

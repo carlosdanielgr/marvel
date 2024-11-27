@@ -85,6 +85,18 @@ main {
   @extend %btn;
 }
 
+.product-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  padding: 2rem 0;
+}
+
+input.ng-touched.ng-invalid,
+.error {
+  border: 1.5px solid rgb(250, 60, 60) !important;
+}
+
 :root {
   --primary: #3b6cf5;
   --secondary: #1b3c74;
