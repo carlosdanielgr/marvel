@@ -14,5 +14,21 @@ export const routes: Routes = [
     path: 'products',
     loadComponent: () =>
       import('./../presentation/products/products.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import(
+            './../presentation/products/pages/products-list/products-list.component'
+          ),
+      },
+      {
+        path: 'favorites',
+        loadComponent: () =>
+          import(
+            './../presentation/products/pages/favorites/favorites.component'
+          ),
+      },
+    ],
   },
 ];
