@@ -1,14 +1,27 @@
 <header class="header">
   <div class="header__content">
     <div class="header__content__nav">
-      <a class="header__content__nav__item" routerLink="/products">Productos</a>
-      <a class="header__content__nav__item" routerLink="favorites"
+      <a
+        class="header__content__nav__item"
+        routerLink="/products"
+        routerLinkActive="header__content__nav__item--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Productos</a
+      >
+      <a
+        class="header__content__nav__item"
+        routerLink="favorites"
+        routerLinkActive="header__content__nav__item--active"
         >Ver favoritos</a
       >
     </div>
     <div class="header__content__actions">
       <span>Bienvenido {{ fullName }}</span>
-      <button type="button" class="btn header__content__logout">
+      <button
+        type="button"
+        class="btn header__content__logout"
+        (click)="onLogout()"
+      >
         <i class="fa-solid fa-power-off"></i>
       </button>
     </div>

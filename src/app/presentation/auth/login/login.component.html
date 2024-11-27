@@ -21,8 +21,12 @@
           formControlName="password"
         />
       </div>
-      <button type="submit" class="form-button" [disabled]="form.invalid">
-        Iniciar sesión
+      <button
+        type="submit"
+        class="form-button"
+        [disabled]="form.invalid || loading"
+      >
+        {{ loading ? "Cargando..." : "Iniciar sesión" }}
       </button>
       <a routerLink="register">Crear cuenta</a>
     </form>

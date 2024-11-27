@@ -22,6 +22,12 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.post(`${this.API_URL}logout`, {});
+    this.http.post(`${this.API_URL}logout`, {}).subscribe();
+    localStorage.removeItem('token');
+    localStorage.removeItem('fullName');
+  }
+
+  get fullName() {
+    return localStorage.getItem('fullName') || '';
   }
 }
