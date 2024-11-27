@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { productsGuard } from '../infrastructure/guards/products.guard';
+
 export const routes: Routes = [
   {
     path: '',
@@ -14,6 +16,7 @@ export const routes: Routes = [
     path: 'products',
     loadComponent: () =>
       import('./../presentation/products/products.component'),
+    canActivate: [productsGuard()],
     children: [
       {
         path: '',
