@@ -36,9 +36,7 @@ export default class LoginComponent {
     this.loading = true;
     this.authService.login(this.form.value as Login).subscribe({
       next: ({ token, fullName }) => {
-        localStorage.setItem('token', token);
-        localStorage.setItem('fullName', fullName);
-        this.router.navigate(['/products']);
+        this.authService.loginSuccess({ token, fullName });
       },
       error: (error) => {
         Swal.fire(errorFn(error.error.message));

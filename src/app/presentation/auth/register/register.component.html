@@ -1,6 +1,6 @@
 <main class="flex-center">
   <article class="register">
-    <form class="register__form">
+    <form class="register__form" [formGroup]="form" (ngSubmit)="onRegister()">
       <button type="button" class="btn register__back-to" routerLink="/">
         <i class="fa-solid fa-arrow-left-long"></i>
       </button>
@@ -12,7 +12,7 @@
           class="form-control"
           id="name"
           placeholder="Nombre"
-          formControlName="name"
+          formControlName="fullName"
         />
       </div>
       <div class="form-content">
@@ -45,7 +45,13 @@
           formControlName="password"
         />
       </div>
-      <button type="submit" class="form-button">Crear cuenta</button>
+      <button
+        type="submit"
+        class="form-button"
+        [disabled]="form.invalid || loading"
+      >
+        {{ loading ? "Cargando..." : "Crear cuenta" }}
+      </button>
     </form>
   </article>
 </main>
