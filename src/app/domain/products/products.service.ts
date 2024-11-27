@@ -14,4 +14,18 @@ export class ProductsService {
   getComics() {
     return this.http.get(`${this.API_URL}comics`);
   }
+
+  getFavorites() {
+    return this.http.get(`${this.API_URL}favorites`);
+  }
+
+  postFavorite(productId: string) {
+    return this.http.post<{ id: string }>(`${this.API_URL}add-favorite`, {
+      productId,
+    });
+  }
+
+  deleteFavorite(productId: string) {
+    return this.http.delete(`${this.API_URL}remove-favorite/${productId}`);
+  }
 }
