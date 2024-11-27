@@ -1,3 +1,9 @@
+%div-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -11,9 +17,7 @@
     height: 50px;
     padding: 0.7rem;
     &__nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      @extend %div-nav;
       &__item {
         text-decoration: none;
         &--active {
@@ -23,6 +27,9 @@
           color: var(--primary);
         }
       }
+    }
+    &__actions {
+      @extend %div-nav;
     }
     &__logout {
       background-color: rgb(236, 60, 60);
