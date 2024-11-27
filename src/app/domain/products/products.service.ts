@@ -2,11 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environment/environtment';
+import { Favorite, Product } from 'src/app/infrastructure/models/product.model';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
+  products: Product[] = [];
+
+  favorites: Favorite[] = [];
+
+  loading = false;
+
+  private productFavoritesIds: string[] = [];
+
   private readonly API_URL = `${environment.apiUrl}products/`;
 
   constructor(private readonly http: HttpClient) {}
@@ -27,5 +37,40 @@ export class ProductsService {
 
   deleteFavorite(productId: string) {
     return this.http.delete(`${this.API_URL}remove-favorite/${productId}`);
+  }
+
+  initData() {
+    if (this.products.length) return;
+    this.loading = true;
+    forkJoin([this.getFavorites(), this.getComics()]).subscribe({
+      next: (response: any) => {
+        this.favorites = response[0];
+        this.productFavoritesIds = this.favorites.map(
+          (data: any) => data.productId
+        );
+        this.setCommics(response[1].data.results);
+        this.loading = false;
+      },
+    });
+  }
+
+  private setCommics(results: any[]): void {
+    this.products = results.map((data: any) => ({
+      id: String(data.id),
+      title: data.title,
+      description: data.description,
+      image: `${data.thumbnail.path}.${data.thumbnail.extension}`,
+      isFavorite: this.productFavoritesIds.includes(String(data.id)),
+      productId: '',
+    }));
+
+    this.products.forEach((product) => {
+      if (product.isFavorite) {
+        const favorite = this.favorites.find(
+          (data) => data.productId === product.id
+        );
+        product.productId = favorite?.id || '';
+      }
+    });
   }
 }
