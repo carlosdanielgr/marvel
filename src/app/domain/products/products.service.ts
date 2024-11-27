@@ -58,6 +58,7 @@ export class ProductsService {
       id: String(data.id),
       title: data.title,
       description: data.description,
+      modified: data.modified,
       image: `${data.thumbnail.path}.${data.thumbnail.extension}`,
       isFavorite: this.productFavoritesIds.includes(String(data.id)),
       productId: '',

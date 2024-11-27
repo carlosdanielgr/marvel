@@ -4,6 +4,7 @@ export interface Product {
   description: string;
   image: string;
   isFavorite: boolean;
+  modified: string;
   productId: string;
 }
 

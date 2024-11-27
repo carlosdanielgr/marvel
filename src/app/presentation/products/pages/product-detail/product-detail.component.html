@@ -1,0 +1,19 @@
+<div class="product-detail">
+  <div class="product-detail__image">
+    <img [src]="product.image" [alt]="product.title" />
+  </div>
+  <div class="product-detail__info">
+    <span class="product-detail__info__date">
+      @if(dateInvalid){ Sin fecha de modificación }@else { Última modificación:
+      {{ product.modified | date : "shortDate" }}
+      }
+    </span>
+    <h1>{{ product.title }}</h1>
+    <p>
+      {{
+        product.description ||
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, blanditiis natus voluptatem cumque ad reiciendis omnis tenetur maiores suscipit dolorum accusantium, iure optio illo similique delectus quibusdam ab, culpa praesentium!"
+      }}
+    </p>
+  </div>
+</div>

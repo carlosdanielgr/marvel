@@ -29,6 +29,13 @@ export const routes: Routes = [
             './../presentation/products/pages/favorites/favorites.component'
           ),
       },
+      {
+        path: 'product-detail/:id',
+        loadComponent: () =>
+          import(
+            './../presentation/products/pages/product-detail/product-detail.component'
+          ),
+      },
     ],
   },
 ];

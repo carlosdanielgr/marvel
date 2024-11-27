@@ -11,15 +11,19 @@
     <i class="fa-regular fa-bookmark"></i>
     }
   </button>
-  <img
-    class="product-card__image"
-    loading="lazy"
-    [src]="product.image"
-    [alt]="product.title"
-  />
-  <div class="product-card__info">
-    <h3>{{ product.title }}</h3>
-  </div>
+  <button
+    type="button"
+    class="btn product-card__btn"
+    (click)="onRouteDetails()"
+  >
+    <img
+      class="product-card__image"
+      loading="lazy"
+      [src]="product.image"
+      [alt]="product.title"
+    />
+    <a class="product-card__title">{{ product.title }}</a>
+  </button>
 </div>
 }@placeholder {
 <span>Cargando...</span>

@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 import { ProductsService } from 'src/app/domain/products/products.service';
 import { errorFn } from 'src/app/infrastructure/helpers/errors.helper';
 import { Product } from 'src/app/infrastructure/models/product.model';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-card',
@@ -15,7 +16,10 @@ import Swal from 'sweetalert2';
 export class ProductCardComponent {
   @Input() product: Partial<Product> = {};
 
-  constructor(private readonly productService: ProductsService) {}
+  constructor(
+    private readonly productService: ProductsService,
+    private readonly router: Router
+  ) {}
 
   toggleProductFavorite(): void {
     if (this.product.isFavorite) this.removeFavorite();
@@ -50,5 +54,9 @@ export class ProductCardComponent {
         Swal.fire(errorFn('Error al agregar a favoritos'));
       },
     });
+  }
+
+  onRouteDetails() {
+    this.router.navigate([`/products/product-detail/${this.product.id}`]);
   }
 }
