@@ -10,4 +10,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./../presentation/auth/register/register.component'),
   },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./../presentation/products/products.component'),
+  },
 ];

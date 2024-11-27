@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,4 +8,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export default class LoginComponent {}
+export default class LoginComponent {
+  constructor(private readonly router: Router) {}
+
+  onLogin() {
+    this.router.navigate(['/products']);
+  }
+}

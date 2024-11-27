@@ -1,0 +1,24 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  box-shadow: 0px 2px 6px #00000075;
+  z-index: 1000;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0.7rem;
+    &__logout {
+      background-color: rgb(236, 60, 60);
+      padding: 0.7rem 1rem;
+      > i {
+        color: var(--white);
+      }
+    }
+  }
+  &__logo {
+    border-radius: 0.5rem;
+  }
+}
