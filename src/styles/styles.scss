@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use "mixins" as *;
+
+// @import "@fortawesome/fontawesome-free/css/all.min";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-size: 14px;
+
+  @include screen(small) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+  background: rgb(64, 58, 153);
+  background: linear-gradient(
+    0deg,
+    rgba(64, 58, 153, 1) 0%,
+    rgba(137, 137, 215, 1) 35%,
+    rgba(218, 249, 255, 1) 100%
+  );
+  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  color: var(--secondary);
+}
+
+:root {
+  --primary: #3b6cf5;
+  --secondary: #1b3c74;
+  --white: #fff;
+  --mx-width: 1170px;
+}
