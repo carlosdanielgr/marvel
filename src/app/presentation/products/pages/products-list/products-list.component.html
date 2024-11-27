@@ -1,1 +1,9 @@
-<p>products-list works!</p>
+@if(products.length && !loading) {
+<div class="product-list">
+  @for (item of products; track $index) {
+  <app-product-card [product]="item" />
+  }
+</div>
+}@else {
+<app-loading />
+}
