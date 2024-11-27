@@ -1,0 +1,29 @@
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 1rem;
+  background-color: var(--white);
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  border-radius: 1rem;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__back-to {
+    width: fit-content;
+    > i {
+      font-size: 1.5rem;
+    }
+  }
+}

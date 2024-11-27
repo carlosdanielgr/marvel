@@ -1,0 +1,51 @@
+<main class="flex-center">
+  <article class="register">
+    <form class="register__form">
+      <button type="button" class="btn register__back-to" routerLink="/">
+        <i class="fa-solid fa-arrow-left-long"></i>
+      </button>
+      <span class="register__title">Crea una cuenta</span>
+      <div class="form-content">
+        <label for="name">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Nombre"
+          formControlName="name"
+        />
+      </div>
+      <div class="form-content">
+        <label for="identification">Identificación</label>
+        <input
+          type="text"
+          class="form-control"
+          id="identification"
+          placeholder="Identificación"
+          formControlName="identification"
+        />
+      </div>
+      <div class="form-content">
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Correo electrónico"
+          formControlName="email"
+        />
+      </div>
+      <div class="form-content">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+      </div>
+      <button type="submit" class="form-button">Crear cuenta</button>
+    </form>
+  </article>
+</main>

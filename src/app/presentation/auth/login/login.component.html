@@ -1,28 +1,28 @@
-<article class="login">
-  <div class="login__container">
+<main class="flex-center">
+  <article class="login">
     <form class="login__form">
-      <div>
-        <label for="name" class="login__form-label">Nombre</label>
+      <div class="form-content">
+        <label for="name">Nombre</label>
         <input
           type="text"
-          class="login__form-control"
+          class="form-control"
           id="name"
           placeholder="Nombre"
           formControlName="name"
         />
       </div>
-      <div>
-        <label for="email" class="login__form-label">Correo electrónico</label>
+      <div class="form-content">
+        <label for="email">Correo electrónico</label>
         <input
           type="email"
-          class="login__form-control"
+          class="form-control"
           id="email"
           placeholder="Correo electrónico"
           formControlName="email"
         />
       </div>
-      <button type="submit" class="login__form-button">Iniciar sesión</button>
-      <a href="">Crear cuenta</a>
+      <button type="submit" class="form-button">Iniciar sesión</button>
+      <a routerLink="register">Crear cuenta</a>
     </form>
-  </div>
-</article>
+  </article>
+</main>
